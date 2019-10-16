@@ -177,11 +177,11 @@ static int on_udp_data(belle_sip_udp_listening_point_t *lp, unsigned int events)
 			chan=_belle_sip_listening_point_get_channel((belle_sip_listening_point_t*)lp,NULL,&ai);
 			if (chan==NULL){
 				/*TODO: should rather create the channel with real local ip and port and not just 0.0.0.0"*/
-				chan=belle_sip_channel_new_udp_with_addr(lp->base.stack
+				/*chan=belle_sip_channel_new_udp_with_addr(lp->base.stack
 														,(int)lp->sock
 														,belle_sip_uri_get_host(lp->base.listening_uri)
 														,belle_sip_uri_get_port(lp->base.listening_uri)
-														,&ai);
+														,&ai);*/
 				if (chan!=NULL){
 					belle_sip_message("udp_listening_point: new channel created to %s:%i",chan->peer_name,chan->peer_port);
 					belle_sip_listening_point_add_channel((belle_sip_listening_point_t*)lp,chan);
